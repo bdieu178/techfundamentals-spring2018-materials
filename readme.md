@@ -1,5 +1,4 @@
 
-There are
 
 In order to get started with the Jupyter data science container, try the following command.
 
@@ -8,17 +7,16 @@ In order to get started with the Jupyter data science container, try the followi
 The -v maps the location of your repository. This should point to the repository
 
 
+In the below command, you need to customize the location of the directory.  For example, on my machine it is the following.
+```
+docker build -t analyticsdojo/jupyter:latest .
+docker run  -d -p 8888:8888  --name analyticsdojo  -v /Users/jasonkuruzovich/githubdesktop/0_class/techfundamentals-fall2018-materials:/home/jovyan/work analyticsdojo/jupyter:latest
 
 ```
-docker run analyticsdojo/jupyter:a9c3750 -d -p 8888:8888  --name analyticsdojo  -v /Users/jasonkuruzovich/githubdesktop/techfundamentals-fall2017-materials:/home/jovyan/work jupyter/datascience-notebook start-notebook.sh
-```
-In the below command, you need to customize the location of the directory.  For example, on my machine it is the following:
-```
-docker run -d -p 8888:8888  -e GRANT_SUDO=yes  --name analyticsdojo  -v /Users/jasonkuruzovich/githubdesktop/materials/analyticsdojo:/home/jovyan/work jupyter/datascience-notebook start-notebook.sh
-```
+
 On a Windows machine, it might be the following:
 ```
-docker run -d -p 8888:8888  -e GRANT_SUDO=yes  --name analyticsdojo  -v /C//Users/jkuruzovich/materials/analyticsdojo:/home/jovyan/work jupyter/datascience-notebook start-notebook.sh
+docker run -d -p 8888:8888  -e GRANT_SUDO=yes  --name analyticsdojo  -v /C//Users/jkuruzovich/materials/analyticsdojo:/home/jovyan/work analyticsdojo/jupyter:latest
 ```
 If you reboot and later find that the container is not running, you can start it from the command line with
 ```docker start analyticsdojo```
